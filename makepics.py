@@ -1,7 +1,8 @@
+# Generate images showing the pentomino tilings.
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import gc
 
 designs = pd.read_csv('matrix.csv', index_col=0)
 solutions = pd.read_csv('exact-covers-sorted.csv',header=None)
