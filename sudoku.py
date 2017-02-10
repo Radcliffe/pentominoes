@@ -39,12 +39,3 @@ for s in solution:
     i, j, k = map(int, s.split())
     m[i, j] = k + 1
 print (m)
-
-
-
-
-
-
-
-
-
