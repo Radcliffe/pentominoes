@@ -17,8 +17,9 @@ def exact_cover(A):
     else:
         c = A.sum(axis=0).argmin()                  # Choose a column c with the fewest 1s.
         for r in A.index[A[c] == 1]:                # For each row r such that A[r,c] = 1,
+            B = A
             for j in A.columns[A.loc[r] == 1]:      #   For each column j such that A[r,j] = 1,
-                A = A[A[j] == 0]                    #     Delete each row i such that A[i,j] = 1
-                del A[j]                            #     then delete column j.
+                B = B[B[j] == 0]                    #     Delete each row i such that A[i,j] = 1
+                del B[j]                            #     then delete column j.
             for partial_solution in exact_cover(B):
                 yield [r] + partial_solution        # Include r in the partial solution.
